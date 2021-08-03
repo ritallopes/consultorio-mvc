@@ -19,18 +19,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-public class Paciente{
+public class Medico{
 	
 	@Id
 	@Column(length = 11, updatable = false)
 	private String cpf;
 	@Column(nullable=false, columnDefinition = "TEXT")
 	private String nome;
-	private String telefone;	
-	private String convenio;
-	private String dataCadastro;
+	private String telefone;
+	@Column(nullable=false)
+	private String crm;
+	private String especialidade;
+	private String dataContratacao;
 	
 	public String toString() {
-		return ("CPF:"+this.cpf+", Nome: "+this.nome+", Telefone:"+this.telefone+","+" Convenio: "+this.convenio+", data de Cadastro: "+this.dataCadastro);
+		return ("CPF:"+this.cpf+", Nome: "+this.nome+", Telefone:"+this.telefone+" Data Cadastro: "+this.dataContratacao+","+" CRM: "+this.crm+", Especialidade: "+this.especialidade);
 	}
 }
